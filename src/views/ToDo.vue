@@ -1,20 +1,31 @@
-<script setup>
-import { defineComponent, ref } from 'vue';
+<script>
+import { ref } from 'vue'
 
-defineComponent({
-    setup() {
-        const todos = ref([
-            {
-                text: "First todo",
-                createdAt: newDate(),
-            },
-        ]);
+export default {
+  setup() {
+    // declaring data - curly brackets mean one array
+    const todos = ref([
+        {
+            text: "First todo",
+            createdAt: "28-08-2022"
+        },
+        {
+            text: "Second todo",
+            createdAt: "29-08-2022"
+        },
+        {
+            text: "Third todo",
+            createdAt: "30-08-2022"
+        }
+        
+    ])
 
-        return {
-            todos,
-        };
-    },
-})
+    // returning data to the page
+    return {
+        todos
+    }
+  },
+}
 </script>
 
 <template>
@@ -27,13 +38,10 @@ defineComponent({
                     
                     <!-- Todo item -->
                     <div v-for="(todo, index) in todos"
-                        :todo="todo"
-                        :index="index"
-                        :key="index"
                         class="p-8 bg-purple-200 shadow-md rounded flex items-center justify-between">
                         <div>
                             <div class="text-purple-800"> {{ todo.text }} </div>
-                            <div class="text-purple-800 text-sm"> {{ todo.createdAt.toString() }} </div>
+                            <div class="text-purple-800 text-sm"> {{ todo.createdAt }} </div>
                         </div>
                         <div class="space-x-2">
                             <button class="px-2 text-red-600" title="Remove todo">
