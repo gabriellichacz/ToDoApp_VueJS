@@ -4,6 +4,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
 
+<div class="flex h-screen flex-col">
+
+  <!-- Navigation bar -->
   <nav class="bg-purple-800">
     <div class="container mx-auto">
       <div class="flex items-center">
@@ -16,6 +19,22 @@ import { RouterLink, RouterView } from 'vue-router'
       </div>
     </div>
   </nav>
-  <RouterView />
+  <!-- end of Navigation bar -->
+  
+  <!-- Main content -->
+  <main class="relative mt-2">
+    <RouterView />
+  </main>
+  <!-- end of Main content -->
+  
+  <!-- Footer -->
+  <footer class="w-full mt-5 bg-purple-800">
+    <div class="container mx-auto">
+      <div class="m-2 text-center text-purple-100"> To do page </div>
+    </div>
+  </footer>
+  <!-- end of Footer -->
+
+</div>
 
 </template>

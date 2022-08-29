@@ -1,10 +1,10 @@
 <template>
 
     <div class="container mx-auto">
-        <h1 class="mt-8 text-2xl text-center text-purple-100"> To do page </h1>
+        <h1 class="text-2xl text-center text-purple-100"> To do page </h1>
         <div class="mt-3">
             <div class="grid grid-cols-12 gap-4">
-                <div class="col-span-6 space-y-4 overflow-y-auto px-1" style="height: 500px">
+                <div class="col-span-6 space-y-4 overflow-y-auto px-1">
                     
                     <!-- Todo item -->
                     <div v-for="(todo, index) in todos"
