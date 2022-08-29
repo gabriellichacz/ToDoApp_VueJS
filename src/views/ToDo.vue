@@ -1,56 +1,3 @@
-<script>
-import { ref, reactive } from 'vue'
-
-export default {
-  setup() {
-    // declaring data
-
-    // todos data curly brackets mean one array
-    const todos = reactive([]);
-    
-    // new todo creation
-    const todoText = ref("");
-
-    function addTodo() {
-        todos.unshift({ // unshift adds data to an existing array at the beginning
-            text: todoText.value, // because the data is const todoText = {value: ""}
-            createdAt: new Date(),
-            done: false,
-        });
-
-        todoText.value = "";
-    };
-
-    function markAsDone(index) {
-        todos[index].done = true;
-    }
-
-    function markAsUnDone(index) {
-        todos[index].done = false;
-    }
-
-    function removeTodo(index) {
-        // Default confirmation
-        if (!confirm("Are you sure?")) {
-            return;
-        }
-        todos.splice(index, 1) // Deleting todos[index]
-    }
-
-
-    // returning data to the page
-    return {
-        todos,
-        todoText,
-        addTodo,
-        markAsDone,
-        markAsUnDone,
-        removeTodo,
-    }
-  },
-}
-</script>
-
 <template>
 
     <div class="container mx-auto">
@@ -104,3 +51,56 @@ export default {
     </div>
 
 </template>
+
+<script>
+    import { ref, reactive } from 'vue'
+    
+    export default {
+      setup() {
+        // declaring data
+    
+        // todos data curly brackets mean one array
+        const todos = reactive([]);
+        
+        // new todo creation
+        const todoText = ref("");
+    
+        function addTodo() {
+            todos.unshift({ // unshift adds data to an existing array at the beginning
+                text: todoText.value, // because the data is const todoText = {value: ""}
+                createdAt: new Date(),
+                done: false,
+            });
+    
+            todoText.value = "";
+        };
+    
+        function markAsDone(index) {
+            todos[index].done = true;
+        }
+    
+        function markAsUnDone(index) {
+            todos[index].done = false;
+        }
+    
+        function removeTodo(index) {
+            // Default confirmation
+            if (!confirm("Are you sure?")) {
+                return;
+            }
+            todos.splice(index, 1) // Deleting todos[index]
+        }
+    
+    
+        // returning data to the page
+        return {
+            todos,
+            todoText,
+            addTodo,
+            markAsDone,
+            markAsUnDone,
+            removeTodo,
+        }
+      },
+    }
+</script>
